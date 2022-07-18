@@ -35,7 +35,7 @@
                     <td>{{ empleado.telefono }}</td>
                     <td>
                         <a name="" id="" class="btn btn-info" href="{% url 'editar' empleado.id %}" role="button">Editar</a>
-                        <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' empleado.id %}" role="button">Eliminar</a>
                 </td>
                 </tr>
 

@@ -26,4 +26,7 @@ def editar(request, id):
         return redirect('inicio')
     return render(request, 'empleados/editar.html', {'formulario': formulario})
 
-    return render(request, 'empleados/editar.html')
+def eliminar(request, id):
+    empleado = Empleado.objects.get(id=id)
+    empleado.delete()
+    return redirect('inicio')
