@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from empleado.forms import LibroForm
+from .models import Empleado
 
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'index.html')
+    empleados = Empleado.objects.all()
+    return render(request, 'empleados/index.html', {'empleados': empleados})
 
 def login(request):
     return render(request, 'login.html')

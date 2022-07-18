@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title> {% block de titulo%} {% endblock %} </title>
+        <title> {% block titulo %} {% endblock %} </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,8 @@
     <body>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="nav navbar-nav">
-                <a class="dropdown-item" href="#">Action 1</a>
-                <a class="dropdown-item" href="#">Action 2</a>
+                <a class="nav-item nav-link active" href="{% url 'inicio' %}">Inicio</a>
+                <a class="nav-item nav-link active" href="#">Cerrar Sesión</a>
             </div>
         </nav>
 
