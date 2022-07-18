@@ -18,5 +18,12 @@ def crear(request):
         return redirect('inicio')
     return render(request, 'empleados/crear.html', {'formulario': formulario})
 
-def editar(request):
+def editar(request, id):
+    empleado = Empleado.objects.get(id=id)
+    formulario = LibroForm(request.POST or None, instance=empleado)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('inicio')
+    return render(request, 'empleados/editar.html', {'formulario': formulario})
+
     return render(request, 'empleados/editar.html')
