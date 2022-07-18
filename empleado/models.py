@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class empleado(models.Model):
+class Empleado(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50, verbose_name='Nombre')
     cedula = models.CharField(max_length=50, verbose_name='Cédula')

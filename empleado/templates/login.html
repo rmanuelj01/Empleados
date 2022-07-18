@@ -1,47 +1,37 @@
-{% load static %}
 <!DOCTYPE html>
-<html class="no-js" lang="es">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inicio de sesión</title>
-    <meta name="description" content="Ela admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS v5.2.0-beta1 -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cs-skin.elastic.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Bootstrap JavaScript Libraries -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #59f4ff;
+        }
+    </style>
 </head>
-<body class="bg-dark">
-
-  <div class="sufee-login d-flex align-content-center flex-wrap">
+<body>
     <div class="container">
-      <div class="login-content">
-        <div class="login-logo">
-          <a href="index.html">
-            <img class="align-content" src="images/logo.png" alt="">
-          </a>
-        </div>
-        <div class="login-form">
-          <form method="POST">
+      <div class="row vh-100 justify-content-center align-items-center">
+              <form method="POST">
 
-            {% csrf_token %}
+                  {% csrf_token %}
 
-            <div class="form-group">
-              <label>Usuario</label>
-              <input type="text" class="form-control" placeholder="Usuario" name="username">
-            </div>
-            <div class="form-group">
-              <label>Contraseña</label>
-              <input type="password" class="form-control" placeholder="Contraseña" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Iniciar sesión</button>
-          </form>
-        </div>
-      </div>
+                  <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+                  <div class="mb-4">
+                      <label for="username" class="form-label">Usuario</label>
+                      <input type="text" class="form-control" placeholder="Usuario" name="username">
+                  </div>
+                      <div class="mb-4">
+                          <label for="password" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                      </div>
+                      <div class="d-grid">
+                          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                      </div>
+              </form>
+      </div> 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
-
-</html>

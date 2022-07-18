@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'empleado'
+    'empleado',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +118,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 
 
 # Static files (CSS, JavaScript, Images)
