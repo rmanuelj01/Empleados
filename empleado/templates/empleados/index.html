@@ -9,16 +9,6 @@
         <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo empleado</a>
     </div>
     <div class="card-body">
-        <div class="input-group mb-3">
-            <input id="SearchBar" type="text" class="form-control" placeholder="Buscar un campo..."
-                aria-label="Buscar un campo por..." aria-describedby="button-addon2">
-            <select class="custom-select me-2 border" id="CategorySelected">
-                <option selected value="1">Por Nombre</option>
-                <option value="2">Por Cédula</option>
-                <option value="3">Por E-mail</option>
-            </select>
-            <button id="SearchBtn" class="btn btn-outline-primary" type="button">Buscar</button>
-        </div>
         <h4 class="card-title">Empleados</h4>
         <table class="table">
             <thead>
@@ -55,57 +45,6 @@
 
             </tbody>
         </table>
-
-        <script id="MainScript" type="text/javascript">
-
-            var searchBar = document.getElementById("SearchBar");
-            var searchBtn = document.getElementById("SearchBtn");
-            var category = document.getElementById("CategorySelected");
-            var tdbody = document.getElementById("tdbody1");
-            var td1 = document.getElementById("td2");
-            var td2 = document.getElementById("td3");
-            var td3 = document.getElementById("td5");
-            td1.classList += "nameField";
-            td2.classList += "cedulaField";
-            td3.classList += "emailField";
-
-            function SearchTable(Category) {
-                var filter = searchBar.value.toUpperCase();
-                var tr = tdbody.getElementsByTagName("tr");
-                var found;
-
-                for (let i = 0; i < tr.length; i++) {
-                    var td = tr[i].getElementsByClassName(Category);
-                    for (let j = 0; j < td.length; j++) {
-                        if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            found = true;
-                        }
-                        if (found) {
-                            tr[i].style.display = "";
-                            found = false;
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-
-            searchBtn.onclick = function () {
-                if (searchBar.value == "");
-
-                else if (category.value == 1) {
-                    SearchTable("nameField");
-                }
-                else if (category.value == 2) {
-                    SearchTable("cedulaField");
-                }
-                else if (category.value == 3) {
-                    SearchTable("emailField");
-                }
-            }
-
-
-        </script>
     </div>
 </div>
 

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from empleado.forms import LibroForm
+from empleado.forms import EmpleadoForm
 from .models import Empleado
+from .filters import OrderFilter
+
 
 # Create your views here.
 
@@ -9,10 +11,11 @@ def login(request):
 
 def inicio(request):
     empleados = Empleado.objects.all()
-    return render(request, 'empleados/index.html', {'empleados': empleados})
+    myFilter = OrderFilter(request.GET)
+    return render(request, 'empleados/index.html', {'empleados': empleados}, {'myFilter': myFilter})
 
 def crear(request):
-    formulario = LibroForm(request.POST or None)
+    formulario = EmpleadoForm(request.POST or None)
     if formulario.is_valid():
         formulario.save()
         return redirect('inicio')
@@ -20,7 +23,7 @@ def crear(request):
 
 def editar(request, id):
     empleado = Empleado.objects.get(id=id)
-    formulario = LibroForm(request.POST or None, instance=empleado)
+    formulario = EmpleadoForm(request.POST or None, instance=empleado)
     if formulario.is_valid():
         formulario.save()
         return redirect('inicio')
