@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn empleado/proyecto.wsgi --log-file=-
+web: gunicorn proyecto.wsgi --log-file=-
