@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import django_heroku
 from pathlib import Path
 from django.urls import reverse_lazy
 
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-^t%w-j!==^gt^p)wh))9ss6&40ztcc$@y)!7sfj(xmev*p23)t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['empleado.herokuapp.com']
 
 
 # Application definition
@@ -78,15 +79,14 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'empleados',
-    'USER': 'abp0fvzeoadv',
-    'PASSWORD': 'pscale_pw_N8WsJjk78OuzJ3WGbCrJyd0b1ZkyGdR9Wptblw39YIQ',
-    'HOST': 'hfoap2rtzsbs.us-east-2.psdb.cloud',
-    'PORT': '3306',
-    'OPTIONS': {'ssl': {'ca': os.environ.get('/etc/ssl/certs/ca-certificates.crt')}}
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_f2a4051f5872b0e',
+        'USER': 'b487a5179cc5c4',
+        'PASSWORD': 'd4b00129',
+        'HOST': 'us-cdbr-east-06.cleardb.net',
+        'PORT': '3306',
+    }
 }
 
 
@@ -126,7 +126,11 @@ LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

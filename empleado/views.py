@@ -12,7 +12,7 @@ def login(request):
 def inicio(request):
     empleados = Empleado.objects.all()
     myFilter = OrderFilter(request.GET)
-    return render(request, 'empleados/index.html', {'empleados': empleados}, {'myFilter': myFilter})
+    return render(request, 'empleados/index.html', {'empleados': empleados})
 
 def crear(request):
     formulario = EmpleadoForm(request.POST or None)
